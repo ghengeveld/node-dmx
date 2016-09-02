@@ -1,32 +1,19 @@
 {
-		"name":		   "dmx",
-		"version":	   "0.0.3",
-		"author":	   "Sebastian Wiedenroth <wiedi@frubar.net>",
-		"description": "DMX library and webservice",
-		"url":		   "https://github.com/wiedi/node-dmx",
-		"main":		   "dmx.js",
-		"bin": {
-						"dmx-web":	 "./dmx-web.js"
-		},
-		"repository": {
-				"type": "git",
-				"url": "https://github.com/wiedi/node-dmx.git"
-		},
-		"keywords": [
-				"DMX",
-				"light control"
-		],
-		"dependencies": {
-				"serialport": "2.1.x",
-				"socket.io":  "0.9.x",
-				"connect":    "2.11.x",
-				"express":    "3.4.x",
-				"commander":  "2.0.x"
-		},
-		"licenses": [
-				{
-						"name": "MIT",
-						"url": "http://www.opensource.org/licenses/mit-license.php"
-				}
-		]
+  "name": "node-dmx",
+  "version": "0.0.0",
+  "author": "Gert Hengeveld",
+  "description": "DMX control for Ayra ERO 540 MKII moving head",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon ./index.js"
+  },
+  "dependencies": {
+    "serialport": "2.1.x"
+  },
+  "devDependencies": {
+    "babel-core": "^6.14.0",
+    "babel-preset-latest": "^6.14.0",
+    "babel-preset-stage-2": "^6.13.0",
+    "nodemon": "^1.10.2"
+  }
 }

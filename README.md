@@ -2,16 +2,31 @@
 
 DMX-512 controller library for Node.js
 
-## Find device ID / serial number
+## Installation
+
+```bash
+git clone https://github.com/ghengeveld/node-dmx.git
+cd node-dmx
+npm install
+```
+
+### Find Device ID / Serial Number
 
 ```bash
 system_profiler SPUSBDataType
 ```
 
-DMX USB PRO -> Serial Number
-
-In src/index.js configure the universe to use this device ID:
+Find the device named "DMX USB PRO" and copy its Serial Number. Then update
+src/index.js to configure the universe to use that Serial Number
 
 ```js
-'/dev/cu.usbserial-<DEVICEID>'
+const universe = new DMX().register('demo', 'enttec-usb-dmx-pro', '/dev/cu.usbserial-<SERIALNUMBER>')
 ```
+
+## Starting
+
+```bash
+npm start
+```
+
+You can make edits in your file and it will automatically restart the Node process.

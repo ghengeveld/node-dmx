@@ -1,6 +1,6 @@
 "use strict"
 
-var SerialPort = require("serialport").SerialPort
+var SerialPort = require("serialport")
 
 function EnttecOpenUsbDMX(device_id, options) {
 	var self = this
@@ -9,14 +9,14 @@ function EnttecOpenUsbDMX(device_id, options) {
 	this.universe = new Buffer(512)
 	this.universe.fill(0)
 
-	self.interval = 23
+	self.interval = 46
 
 	this.dev = new SerialPort(device_id, {
-		'baudrate': 57600,
+		'baudrate': 250000,
 		'databits': 8,
 		'stopbits': 2,
 		'parity': 'none'
-	}, true, function(err) {
+	}, function(err) {
 		if(!err) {
 			self.start()
 		}
@@ -33,7 +33,13 @@ EnttecOpenUsbDMX.prototype.send_universe = function() {
 
 	// toggle break
 	self.dev.set({brk: true}, function(err, r) {
-		self.dev.set({brk: false})
+		setTimeout(function() {
+			self.dev.set({brk: false}, function(err, r) {
+				setTimeout(function() {
+					self.dev.write(Buffer.concat([Buffer([0]), self.universe]))
+				}, 1)
+			})
+		}, 1)
 	})
 }
 

@@ -8,7 +8,7 @@
     "start": "nodemon ./index.js"
   },
   "dependencies": {
-    "serialport": "2.1.x"
+    "serialport": "4.0.x"
   },
   "devDependencies": {
     "babel-core": "^6.14.0",

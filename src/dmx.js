@@ -4,6 +4,6 @@ export default class DMX {
   }
   register(universe, driver, device) {
     const Driver = require(`./drivers/${driver}.js`)
-    return this.universes[universe] = new Driver(device)
+    return (this.universes[universe] = new Driver(device))
   }
 }

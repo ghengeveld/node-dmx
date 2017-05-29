@@ -1,0 +1,20 @@
+{
+  "env": {
+    "node": true
+  },
+  "extends": [
+    "prettier"
+  ],
+  "parser": "babel-eslint",
+  "plugins": [
+    "import"
+  ],
+  "rules": {
+    "max-len": ["error", 120],
+    "no-unused-vars": ["error", { "varsIgnorePattern": "_+" }],
+    "no-use-before-define": ["error", { "functions": false }],
+    "semi": ["error", "never"],
+    "import/no-named-as-default": ["warn"],
+    "import/prefer-default-export": ["warn"]
+  }
+}

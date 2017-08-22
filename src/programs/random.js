@@ -1,7 +1,7 @@
 import { hslToRgb } from "../utils/colors"
 import { pan, tilt, rgb } from "../devices/ayra-ero-540-mk2"
 
-export default universe => {
+export default function program(universe) {
   setInterval(() => {
     const randomColor = hslToRgb(Math.random(), 1, 0.5)
     universe.update(rgb(...randomColor))

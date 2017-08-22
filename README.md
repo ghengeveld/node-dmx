@@ -10,7 +10,7 @@ cd node-dmx
 npm install
 ```
 
-### Find Device ID / Serial Number
+### Find Device ID / Serial Number (Mac OS)
 
 ```bash
 system_profiler SPUSBDataType
@@ -23,10 +23,19 @@ src/index.js to configure the universe to use that Serial Number
 const universe = new DMX().register('demo', 'enttec-usb-dmx-pro', '/dev/cu.usbserial-<SERIALNUMBER>')
 ```
 
-## Starting
+## Starting in development mode
+
+Use `npm start` to fire up development mode with automatic restart on file change.
+The script takes a program name as parameter. This should match one of the files in `src/programs`.
 
 ```bash
-npm start
+npm start -- ocean
 ```
 
 You can make edits in your file and it will automatically restart the Node process.
+
+## Running separately (without file watch)
+
+```bash
+node index.js ocean
+```

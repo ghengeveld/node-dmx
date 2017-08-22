@@ -1,13 +1,17 @@
-import DMX from './dmx'
-import {pan, tilt, open, color, gobo, cw, ccw, strobe} from './devices/ayra-ero-540-mk2'
+import DMX from "./dmx"
+import { pan, tilt, open, color, gobo, cw, ccw, strobe, rgb } from "./devices/ayra-ero-540-mk2"
+import random from "./programs/random"
 
-const universe = new DMX().register('demo', 'enttec-usb-dmx-pro', '/dev/cu.usbserial-6A0JKBLF')
+const args = process.argv.slice(2)
+const universe = new DMX().register("demo", "enttec-usb-dmx-pro", "/dev/cu.usbserial-6A0JKBPP")
 
-universe.update(pan(37))
-universe.update(tilt(65))
+universe.update(pan(96))
+universe.update(tilt(28))
 universe.update(open())
-universe.update(color('orange'))
-universe.update(gobo(5))
+
+random(universe)
+
+// universe.update(gobo(10))
 // universe.update(cw(20))
 // universe.update(dim(24))
 // universe.update(strobe(100))
